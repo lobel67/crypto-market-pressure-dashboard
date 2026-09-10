@@ -1,4 +1,5 @@
 export interface UserTrade {
+  _id?: string;
   userId: string;
   symbol: string;
   entryPrice: number;
@@ -29,7 +30,7 @@ export interface TradeAnalytics {
     longProfit: number;
     shortProfit: number;
   };
-  averageHoldingTime: number; // in minutes
+  averageHoldingTime: number;
   losingStreaks: { count: number; maxConsecutive: number };
   ruleViolations: string[];
   timestamp: Date;
@@ -37,9 +38,9 @@ export interface TradeAnalytics {
 
 export interface TradeInsight {
   userId: string;
-  type: 'recommendation' | 'warning' | 'pattern' | 'opportunity';
+  type: 'warning' | 'recommendation' | 'pattern';
   message: string;
   relatedCoins?: string[];
-  confidence: number; // 0-1
+  confidence: number;
   timestamp: Date;
 }
